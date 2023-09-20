@@ -27,13 +27,16 @@ print(table)
 for row in table.find_all('tr'):
     row_data = []
     
+    for cell in row.find_all(['td']):
+        row_data.append(cell.text.strip())
     for cell in row.find_all(['strong']):
+        row_data.append(cell.text.strip())
+    for cell in row.find_all(['br']):
         row_data.append(cell.text.strip())
         # print(cell.text.strip())
     for cell in row.find_all(['li']):
         row_data.append(cell.text.strip())
-    for cell in row.find_all(['td']):
-        row_data.append(cell.text.strip())
+    
     
     
     
